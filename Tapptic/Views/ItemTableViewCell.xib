@@ -72,6 +72,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="activityIndicator" destination="Kbc-xD-ebI" id="HZk-XH-5fV"/>
+                <outlet property="containerView" destination="XhC-8F-6FR" id="Fnb-45-zIt"/>
                 <outlet property="thumbnailImageView" destination="ayd-lE-k4s" id="GbN-WE-dMS"/>
                 <outlet property="titleLabel" destination="aT2-eK-bY7" id="C3u-gA-t4y"/>
             </connections>

@@ -13,7 +13,18 @@ class MasterViewController: UITableViewController {
     @IBOutlet var noDataView: UIView!
     
     private let viewModel = ItemsViewModel()
+    fileprivate var selectedCellIndex: Int = 0 {
+        didSet {
+            if let oldCell = tableView.cellForRow(at: IndexPath(row: oldValue, section: 0)) as? ItemTableViewCell {
+                oldCell.state = .notSelected
+            }
 
+            if let newCell = tableView.cellForRow(at: IndexPath(row: selectedCellIndex, section: 0)) as? ItemTableViewCell {
+                newCell.state = .selected
+            }
+        }
+    }
+    
     //MARK: - Life Cycles Methods
     
     override func viewDidLoad() {
@@ -85,6 +96,7 @@ extension MasterViewController {
         
         let data = viewModel.getItemData(withIndex: indexPath.row)
         cell.update(withData: data)
+        cell.state = selectedCellIndex == indexPath.row ? .selected : .notSelected
         
         ImageService.getImage(withUrl: data.imageUrl) { (image) in
             if cell.thumbnailURL == data.imageUrl {
@@ -92,18 +104,36 @@ extension MasterViewController {
                 cell.thumbnailImageView.image = image
             }
         }
-
+        cell.selectionStyle = .none
         return cell
     }
+}
+
+// MARK: - Table View Delegate Methods
+
+extension MasterViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedCellIndex = indexPath.row
         performSegue(withIdentifier: "showDetail", sender: indexPath.row)
     }
+
+    override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! ItemTableViewCell
+        cell.state = .touched
+    }
+    
+    override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! ItemTableViewCell
+        cell.state = selectedCellIndex == indexPath.row ? .selected : .notSelected
+    }
+    
 }
 
 // MARK: - Split View Controller Delegate Method
 
 extension MasterViewController: UISplitViewControllerDelegate {
+    
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
         return true
     }
