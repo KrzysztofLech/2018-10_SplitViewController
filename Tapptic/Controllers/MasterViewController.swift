@@ -26,6 +26,9 @@ class MasterViewController: UITableViewController {
     //MARK: - Private Methods
     
     private func setupView() {
+        splitViewController?.delegate = self
+        splitViewController?.preferredDisplayMode = .allVisible
+
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
         
         tableView.tableFooterView = UIView()
@@ -95,5 +98,13 @@ extension MasterViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "showDetail", sender: indexPath.row)
+    }
+}
+
+// MARK: - Split View Controller Delegate Method
+
+extension MasterViewController: UISplitViewControllerDelegate {
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        return true
     }
 }
