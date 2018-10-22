@@ -26,14 +26,14 @@
             </objects>
             <point key="canvasLocation" x="1068" y="387.25637181409297"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Items: 0-->
         <scene sceneID="uW4-Ng-sMc">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="jbv-0D-FUy" customClass="MasterViewController" customModule="Tapptic" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="iPu-p7-P7H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MasterVCcell" id="Q0L-Du-S7u">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -49,9 +49,40 @@
                             <outlet property="delegate" destination="jbv-0D-FUy" id="7Qg-ro-AlM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="NSX-la-hhD"/>
+                    <navigationItem key="navigationItem" title="Items: 0" id="NSX-la-hhD"/>
+                    <connections>
+                        <outlet property="noDataView" destination="goR-5L-Jsy" id="Xx5-Cq-ewW"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="etI-i4-5Nc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="goR-5L-Jsy" userLabel="NoData View">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KoD-2J-su5">
+                            <rect key="frame" x="0.0" y="28.5" width="240" height="71"/>
+                            <subviews>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="9TM-wx-Lm4">
+                                    <rect key="frame" x="101.5" y="0.0" width="37" height="37"/>
+                                </activityIndicatorView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOB-vs-fVp">
+                                    <rect key="frame" x="87" y="47" width="66.5" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="20"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="KoD-2J-su5" firstAttribute="centerY" secondItem="goR-5L-Jsy" secondAttribute="centerY" id="FQX-1T-oAn"/>
+                        <constraint firstItem="KoD-2J-su5" firstAttribute="leading" secondItem="G8c-C7-YTM" secondAttribute="leading" id="Z4x-Io-ngg"/>
+                        <constraint firstItem="KoD-2J-su5" firstAttribute="centerX" secondItem="goR-5L-Jsy" secondAttribute="centerX" id="fCr-AD-Qh3"/>
+                        <constraint firstItem="G8c-C7-YTM" firstAttribute="trailing" secondItem="KoD-2J-su5" secondAttribute="trailing" id="w29-Pg-flP"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="G8c-C7-YTM"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="1082" y="-277"/>
         </scene>

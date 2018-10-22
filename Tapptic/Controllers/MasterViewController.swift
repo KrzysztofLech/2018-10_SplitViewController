@@ -10,17 +10,32 @@ import UIKit
 
 class MasterViewController: UITableViewController {
     
+    @IBOutlet var noDataView: UIView!
+    
     private let viewModel = ItemsViewModel()
 
+    //MARK: - Life Cycles Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.tableFooterView = UIView()
+        setupTableView()
         fetchData()
+    }
+    
+    //MARK: - Private Methods
+    
+    private func setupTableView() {
+        tableView.tableFooterView = UIView()
+        tableView.backgroundView = noDataView
     }
     
     private func fetchData() {
         viewModel.initFetch { [weak self] in
+            guard let itemsCount = self?.viewModel.itemsCount else { return }
+            
+            self?.tableView.backgroundView = itemsCount > 0 ? nil : self?.noDataView
+            self?.title = String(format: "Items: %i", itemsCount)
             self?.tableView.reloadData()
         }
     }
