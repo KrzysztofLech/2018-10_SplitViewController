@@ -19,13 +19,15 @@ class MasterViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupTableView()
+        setupView()
         fetchData()
     }
     
     //MARK: - Private Methods
     
-    private func setupTableView() {
+    private func setupView() {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
+        
         tableView.tableFooterView = UIView()
         tableView.register(UINib(nibName: ItemTableViewCell.toString(), bundle: nil),
                            forCellReuseIdentifier: ItemTableViewCell.toString())
