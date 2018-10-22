@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6BA9CD6C217D9CFF00333CDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA9CD6B217D9CFF00333CDD /* AppDelegate.swift */; };
-		6BA9CD6E217D9CFF00333CDD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA9CD6D217D9CFF00333CDD /* ViewController.swift */; };
 		6BA9CD71217D9CFF00333CDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BA9CD6F217D9CFF00333CDD /* Main.storyboard */; };
 		6BA9CD73217D9D0000333CDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BA9CD72217D9D0000333CDD /* Assets.xcassets */; };
 		6BA9CD76217D9D0000333CDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BA9CD74217D9D0000333CDD /* LaunchScreen.storyboard */; };
@@ -28,7 +27,6 @@
 /* Begin PBXFileReference section */
 		6BA9CD68217D9CFF00333CDD /* Tapptic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tapptic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA9CD6B217D9CFF00333CDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6BA9CD6D217D9CFF00333CDD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6BA9CD70217D9CFF00333CDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6BA9CD72217D9D0000333CDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6BA9CD75217D9D0000333CDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,6 +54,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B8B9727217D9DCC00214CAD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6B8B9728217D9DE400214CAD /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		6B8B9729217D9DEF00214CAD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6B8B972A217D9E1A00214CAD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		6B8B972B217D9E2A00214CAD /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				6B8B972D217D9E7900214CAD /* Services */,
+				6B8B972C217D9E6C00214CAD /* Extensions */,
+				6B8B972E217D9E8B00214CAD /* Helpers */,
+				6BA9CD74217D9D0000333CDD /* LaunchScreen.storyboard */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		6B8B972C217D9E6C00214CAD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6B8B972D217D9E7900214CAD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6B8B972E217D9E8B00214CAD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		6BA9CD5F217D9CFF00333CDD = {
 			isa = PBXGroup;
 			children = (
@@ -78,10 +136,13 @@
 			isa = PBXGroup;
 			children = (
 				6BA9CD6B217D9CFF00333CDD /* AppDelegate.swift */,
-				6BA9CD6D217D9CFF00333CDD /* ViewController.swift */,
 				6BA9CD6F217D9CFF00333CDD /* Main.storyboard */,
+				6B8B9727217D9DCC00214CAD /* Models */,
+				6B8B9728217D9DE400214CAD /* ViewModels */,
+				6B8B9729217D9DEF00214CAD /* Views */,
+				6B8B972A217D9E1A00214CAD /* Controllers */,
+				6B8B972B217D9E2A00214CAD /* Other */,
 				6BA9CD72217D9D0000333CDD /* Assets.xcassets */,
-				6BA9CD74217D9D0000333CDD /* LaunchScreen.storyboard */,
 				6BA9CD77217D9D0000333CDD /* Info.plist */,
 			);
 			path = Tapptic;
@@ -197,7 +258,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BA9CD6E217D9CFF00333CDD /* ViewController.swift in Sources */,
 				6BA9CD6C217D9CFF00333CDD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
