@@ -10,7 +10,7 @@ import Foundation
 
 enum CacheConfiguration {
     static let maxObjects = 52 * 2
-    static let maxSize = 1200 * 1200 * maxObjects
+    static let maxSize = 300 * 100 * maxObjects
 }
 
 class CacheService {
