@@ -17,6 +17,7 @@
 		6B8B9742217DB60300214CAD /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B8B9740217DB60300214CAD /* ItemTableViewCell.xib */; };
 		6B8B9744217DB80A00214CAD /* UIView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B9743217DB80A00214CAD /* UIView+extensions.swift */; };
 		6B8B9746217DB83A00214CAD /* UIViewController+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B9745217DB83A00214CAD /* UIViewController+extensions.swift */; };
+		6B8B9748217DBB3100214CAD /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B9747217DBB3000214CAD /* ImageService.swift */; };
 		6BA9CD6C217D9CFF00333CDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA9CD6B217D9CFF00333CDD /* AppDelegate.swift */; };
 		6BA9CD71217D9CFF00333CDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BA9CD6F217D9CFF00333CDD /* Main.storyboard */; };
 		6BA9CD73217D9D0000333CDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BA9CD72217D9D0000333CDD /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		6B8B9740217DB60300214CAD /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 		6B8B9743217DB80A00214CAD /* UIView+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extensions.swift"; sourceTree = "<group>"; };
 		6B8B9745217DB83A00214CAD /* UIViewController+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extensions.swift"; sourceTree = "<group>"; };
+		6B8B9747217DBB3000214CAD /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		6BA9CD68217D9CFF00333CDD /* Tapptic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tapptic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA9CD6B217D9CFF00333CDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BA9CD70217D9CFF00333CDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				6B8B973B217DA5B500214CAD /* APIService.swift */,
+				6B8B9747217DBB3000214CAD /* ImageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				6B8B9741217DB60300214CAD /* ItemTableViewCell.swift in Sources */,
 				6B8B973E217DA6F900214CAD /* ItemsViewModel.swift in Sources */,
 				6B8B9744217DB80A00214CAD /* UIView+extensions.swift in Sources */,
+				6B8B9748217DBB3100214CAD /* ImageService.swift in Sources */,
 				6B8B973C217DA5B500214CAD /* APIService.swift in Sources */,
 				6B8B9736217DA0C100214CAD /* MasterViewController.swift in Sources */,
 			);
