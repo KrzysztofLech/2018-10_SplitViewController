@@ -36,7 +36,7 @@ class APIService: APIServiceProtocool {
                     print("Error: ", APIError.noInternetError.rawValue)
                     errorHandler(APIError.noInternetError)
                 } else {
-                    print("Error: ", APIError.fetchError.rawValue, error.localizedDescription)
+                    print("Error: \(APIError.fetchError.rawValue) - ", error.localizedDescription)
                     errorHandler(APIError.fetchError)
                 }
                 return

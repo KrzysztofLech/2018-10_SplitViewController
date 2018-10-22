@@ -9,11 +9,14 @@
 import UIKit
 
 class MasterViewController: UITableViewController {
+    
+    private let viewModel = ItemsViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView()
+        viewModel.initFetch()
     }
 }
 
