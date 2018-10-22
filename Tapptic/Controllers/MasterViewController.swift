@@ -59,6 +59,14 @@ extension MasterViewController {
         
         let data = viewModel.getItemData(withIndex: indexPath.row)
         cell.update(withData: data)
+        
+        ImageService.downloadImage(withUrl: data.imageUrl) { (image) in
+            if cell.thumbnailURL == data.imageUrl {
+                cell.activityIndicator.stopAnimating()
+                cell.thumbnailImageView.image = image
+            }
+        }
+
         return cell
     }
 }
