@@ -16,7 +16,13 @@ class MasterViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView()
-        viewModel.initFetch()
+        fetchData()
+    }
+    
+    private func fetchData() {
+        viewModel.initFetch { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
 }
 
@@ -24,12 +30,8 @@ class MasterViewController: UITableViewController {
 
 extension MasterViewController {
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return viewModel.itemsCount
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

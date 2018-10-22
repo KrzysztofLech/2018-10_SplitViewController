@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias Completion = (()->())
+
 class ItemsViewModel {
     
     // MARK: - Private Properties
@@ -16,7 +18,7 @@ class ItemsViewModel {
     private var items: [Item] = []
     
     // MARK: - Public Properties
-    
+    var itemsCount: Int { return items.count }
     
     // MARK: - Init
 
@@ -26,9 +28,10 @@ class ItemsViewModel {
     
     // MARK: - Networking
     
-    func initFetch() {
+    func initFetch(successCompletion: @escaping Completion) {
         let successHandler: ([Item])->() = { [weak self] items in
-            self?.processFetchedItems(items: items)
+            self?.processFetchedData(items: items)
+            DispatchQueue.main.async { successCompletion() }
         }
         
         let errorHandler: (APIError)->() = { [weak self] error in
@@ -43,7 +46,7 @@ class ItemsViewModel {
     
     // MARK: - Data Model Methods
     
-    private func processFetchedItems(items: [Item]) {
+    private func processFetchedData(items: [Item]) {
         print("Pobrano: \(items.count) elementów!")
         self.items = items
     }
