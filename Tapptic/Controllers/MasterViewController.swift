@@ -64,16 +64,14 @@ class MasterViewController: UITableViewController {
 extension MasterViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "showDetail", let index = sender as? Int else { return }
-
-        let itemName = viewModel.getItemName(withIndex: index)
-        
         guard
+            segue.identifier == "showDetail",
+            let index = sender as? Int,
             let detailNavigationController = segue.destination as? UINavigationController,
             let detailViewController = detailNavigationController.topViewController as? DetailViewController
             else { return }
-        
-        detailViewController.itemName = itemName
+
+        detailViewController.itemName = viewModel.getItemName(withIndex: index)
         
         detailViewController.navigationItem.leftItemsSupplementBackButton = true
         detailViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
