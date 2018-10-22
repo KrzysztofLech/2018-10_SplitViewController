@@ -50,4 +50,8 @@ class ItemsViewModel {
         print("Pobrano: \(items.count) elementów!")
         self.items = items
     }
+    
+    func getItemData(withIndex index: Int) -> Item {
+        return items[index]
+    }
 }
