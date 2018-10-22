@@ -43,6 +43,27 @@ class MasterViewController: UITableViewController {
     }
 }
 
+// MARK: - Navigation
+
+extension MasterViewController {
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "showDetail", let index = sender as? Int else { return }
+
+        let itemName = viewModel.getItemName(withIndex: index)
+        
+        guard
+            let detailNavigationController = segue.destination as? UINavigationController,
+            let detailViewController = detailNavigationController.topViewController as? DetailViewController
+            else { return }
+        
+        detailViewController.itemName = itemName
+        
+        detailViewController.navigationItem.leftItemsSupplementBackButton = true
+        detailViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+    }
+}
+
 // MARK: - Table View Data Souce Methods
 
 extension MasterViewController {
@@ -68,5 +89,9 @@ extension MasterViewController {
         }
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showDetail", sender: indexPath.row)
     }
 }

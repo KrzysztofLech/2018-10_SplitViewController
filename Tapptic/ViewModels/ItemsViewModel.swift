@@ -22,7 +22,7 @@ class ItemsViewModel {
     
     // MARK: - Init
 
-    init(apiService: APIService = APIService()) {
+    init(apiService: APIServiceProtocool = APIService()) {
         self.apiService = apiService
     }
     
@@ -53,5 +53,9 @@ class ItemsViewModel {
     
     func getItemData(withIndex index: Int) -> Item {
         return items[index]
+    }
+    
+    func getItemName(withIndex index: Int) -> String {
+        return items[index].name
     }
 }

@@ -11,5 +11,5 @@ import Foundation
 struct Constants {
     
     static let itemsUrl = "http://dev.tapptic.com/test/json.php"
-    static let itemDetailslUrl = "http://dev.tapptic.com/test/json.php?name="
+    static let itemDetailUrl = "http://dev.tapptic.com/test/json.php?name="
 }
