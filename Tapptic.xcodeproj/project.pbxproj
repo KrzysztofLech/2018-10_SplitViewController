@@ -10,6 +10,7 @@
 		6B8B9734217DA05200214CAD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B9733217DA05200214CAD /* DetailViewController.swift */; };
 		6B8B9736217DA0C100214CAD /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B9735217DA0C100214CAD /* MasterViewController.swift */; };
 		6B8B9738217DA46100214CAD /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B9737217DA46100214CAD /* Item.swift */; };
+		6B8B973A217DA54B00214CAD /* Constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B9739217DA54B00214CAD /* Constans.swift */; };
 		6BA9CD6C217D9CFF00333CDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA9CD6B217D9CFF00333CDD /* AppDelegate.swift */; };
 		6BA9CD71217D9CFF00333CDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BA9CD6F217D9CFF00333CDD /* Main.storyboard */; };
 		6BA9CD73217D9D0000333CDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BA9CD72217D9D0000333CDD /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		6B8B9733217DA05200214CAD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		6B8B9735217DA0C100214CAD /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		6B8B9737217DA46100214CAD /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		6B8B9739217DA54B00214CAD /* Constans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constans.swift; sourceTree = "<group>"; };
 		6BA9CD68217D9CFF00333CDD /* Tapptic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tapptic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA9CD6B217D9CFF00333CDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BA9CD70217D9CFF00333CDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				6B8B972C217D9E6C00214CAD /* Extensions */,
 				6B8B972E217D9E8B00214CAD /* Helpers */,
 				6BA9CD74217D9D0000333CDD /* LaunchScreen.storyboard */,
+				6B8B9739217DA54B00214CAD /* Constans.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			files = (
 				6B8B9738217DA46100214CAD /* Item.swift in Sources */,
 				6B8B9734217DA05200214CAD /* DetailViewController.swift in Sources */,
+				6B8B973A217DA54B00214CAD /* Constans.swift in Sources */,
 				6BA9CD6C217D9CFF00333CDD /* AppDelegate.swift in Sources */,
 				6B8B9736217DA0C100214CAD /* MasterViewController.swift in Sources */,
 			);
