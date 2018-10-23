@@ -17,6 +17,7 @@ class DetailViewModel {
     private var detail: Detail?
 
     // MARK: - Public Properties
+    
     var name: String {
         return detail?.name ?? ""
     }
@@ -30,25 +31,23 @@ class DetailViewModel {
     }
     
     // MARK: - Init
+    
     init(itemName: String, apiService: APIServiceProtocool = APIService()) {
         self.itemName = itemName
         self.apiService = apiService
     }
     
+    // MARK: - Networking
+    
     func initFetch(successCompletion: @escaping Completion) {
-        let successHandler: (Detail)->() = { [weak self] detail in
-            self?.detail = detail
-            DispatchQueue.main.async { successCompletion() }
-        }
-        
-        let errorHandler: (APIError)->() = { [weak self] error in
-            print("Error: ", error.rawValue)
-            // TODO: Show Allert
-        }
-        
         let urlString = String(format: "%@%@", Constants.itemDetailUrl, itemName)
-        apiService.fetchData(url: urlString,
-                             successsHandler: successHandler,
-                             errorHandler: errorHandler)
+        apiService.fetchData(url: urlString) { [weak self] result in
+            do {
+                self?.detail = try result.decode() as Detail
+                DispatchQueue.main.async { successCompletion() }
+            } catch {
+                print(error)
+            }
+        }
     }
 }

@@ -18,6 +18,7 @@ class ItemsViewModel {
     private var items: [Item] = []
     
     // MARK: - Public Properties
+    
     var itemsCount: Int { return items.count }
     
     // MARK: - Init
@@ -29,27 +30,17 @@ class ItemsViewModel {
     // MARK: - Networking
     
     func initFetch(successCompletion: @escaping Completion) {
-        let successHandler: ([Item])->() = { [weak self] items in
-            self?.processFetchedData(items: items)
-            DispatchQueue.main.async { successCompletion() }
+        apiService.fetchData(url: Constants.itemsUrl) { [weak self] result in
+            do {
+                self?.items = try result.decode() as [Item]
+                DispatchQueue.main.async { successCompletion() }
+            } catch {
+                print(error)
+            }
         }
-        
-        let errorHandler: (APIError)->() = { [weak self] error in
-            print("Error: ", error.rawValue)
-            // TODO: Show Allert
-        }
-        
-        apiService.fetchData(url: Constants.itemsUrl,
-                             successsHandler: successHandler,
-                             errorHandler: errorHandler)
     }
     
-    // MARK: - Data Model Methods
-    
-    private func processFetchedData(items: [Item]) {
-        print("Pobrano: \(items.count) elementów!")
-        self.items = items
-    }
+    // MARK: - Public Methods
     
     func getItemData(withIndex index: Int) -> Item {
         return items[index]
