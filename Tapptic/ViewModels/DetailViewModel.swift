@@ -13,6 +13,7 @@ class DetailViewModel {
     // MARK: - Private Properties
     
     private let apiService: APIServiceProtocool
+    private let alertService: AlertService
     private let itemName: String
     private var detail: Detail?
 
@@ -32,9 +33,10 @@ class DetailViewModel {
     
     // MARK: - Init
     
-    init(itemName: String, apiService: APIServiceProtocool = APIService()) {
+    init(itemName: String, apiService: APIServiceProtocool = APIService(), alertService: AlertService = AlertService()) {
         self.itemName = itemName
         self.apiService = apiService
+        self.alertService = alertService
     }
     
     // MARK: - Networking
@@ -42,12 +44,26 @@ class DetailViewModel {
     func initFetch(successCompletion: @escaping Completion) {
         let urlString = String(format: "%@%@", Constants.itemDetailUrl, itemName)
         apiService.fetchData(url: urlString) { [weak self] result in
-            do {
-                self?.detail = try result.decode() as Detail
+            switch result {
+            case .success(let data):
+                self?.processFetchedData(data)
                 DispatchQueue.main.async { successCompletion() }
-            } catch {
-                print(error)
+                
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self?.alertService.showAlert(withError: error, noInternetAction: {
+                        self?.initFetch(successCompletion: successCompletion)
+                    })
+                }
             }
+        }
+    }
+    
+    private func processFetchedData(_ data: Data) {
+        do {
+            detail = try JSONDecoder().decode(Detail.self, from: data)
+        } catch {
+            print(error)
         }
     }
 }

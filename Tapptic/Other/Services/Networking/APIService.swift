@@ -22,12 +22,16 @@ class APIService: APIServiceProtocool {
         
         URLSession.shared.dataTask(with: endPointUrl) { (data, response, error) in
             if let error = error {
-                completion(.failure(.network(description: "Failed to fetch data: " + error.localizedDescription)))
+                if let err = error as? URLError, err.code == .notConnectedToInternet {
+                    completion(.failure(.noInternet(description: "No Internet!")))
+                } else {
+                    completion(.failure(.network(description: "Failed to fetch data: " + error.localizedDescription)))
+                }
                 return
             }
             
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
-                completion(.failure(.network(description: "Response Status Code is not OK: \(httpResponse.statusCode)")))
+                completion(.failure(.network(description: "Response Status Code is not OK (\(httpResponse.statusCode))")))
                 return
             }
             
