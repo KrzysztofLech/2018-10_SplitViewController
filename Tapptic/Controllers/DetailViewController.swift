@@ -8,8 +8,13 @@
 
 import UIKit
 
+protocol HideDetailProtocol {
+    func hideDetail()
+}
+
 class DetailViewController: UIViewController {
 
+    @IBOutlet private weak var backToListButton: UIButton!
     @IBOutlet private weak var mainActivityIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var itemImageView: UIImageView!
@@ -17,15 +22,34 @@ class DetailViewController: UIViewController {
     @IBOutlet private weak var itemNameLabel: UILabel!
     @IBOutlet private weak var itemTextLabel: UILabel!
     
-    var itemName: String = "1"
+    var delegate: HideDetailProtocol!
     
-    lazy private var viewModel = DetailViewModel(itemName: itemName)
+    var itemName: String = "1" {
+        didSet {
+            viewModel.itemName = itemName
+            showNewData()
+        }
+    }
+    
+    private var viewModel = DetailViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        showNewData()
+    }
+    
+    private func showNewData() {
         containerView.alpha = 0.0
+        mainActivityIndicator.startAnimating()
+        resetView()
         fetchData()
+    }
+    
+    private func resetView() {
+        itemNameLabel.text = nil
+        itemTextLabel.text = nil
+        imageActivityIndicator.startAnimating()
+        itemImageView.image = nil
     }
     
     private func fetchData() {
@@ -46,5 +70,9 @@ class DetailViewController: UIViewController {
             self?.imageActivityIndicator.stopAnimating()
             self?.itemImageView.image = image
         }
+    }
+    
+    @IBAction func backToListButtonAction() {
+        delegate.hideDetail()
     }
 }

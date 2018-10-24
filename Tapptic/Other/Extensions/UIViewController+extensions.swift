@@ -14,3 +14,14 @@ extension UIViewController {
         return String(describing: self)
     }
 }
+
+extension UIViewController {
+    
+    func currentOrientationIsPortrait() -> Bool {
+        let currentOrientation = UIApplication.shared.statusBarOrientation
+        if currentOrientation == .portrait || currentOrientation == .portraitUpsideDown {
+            return true
+        }
+        return false
+    }
+}

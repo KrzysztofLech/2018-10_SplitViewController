@@ -8,17 +8,18 @@
 
 import Foundation
 
+typealias Completion = (()->())
+
 class DetailViewModel {
     
     // MARK: - Private Properties
     
     private let apiService: APIServiceProtocool
     private let alertService: AlertService
-    private let itemName: String
     private var detail: Detail?
 
     // MARK: - Public Properties
-    
+    var itemName: String = "1"
     var name: String {
         return detail?.name ?? ""
     }
@@ -33,8 +34,7 @@ class DetailViewModel {
     
     // MARK: - Init
     
-    init(itemName: String, apiService: APIServiceProtocool = APIService(), alertService: AlertService = AlertService()) {
-        self.itemName = itemName
+    init(apiService: APIServiceProtocool = APIService(), alertService: AlertService = AlertService()) {
         self.apiService = apiService
         self.alertService = alertService
     }

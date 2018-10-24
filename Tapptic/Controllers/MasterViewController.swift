@@ -8,11 +8,18 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+protocol ShowDetailProtocol {
+    func showDetail(withName name: String)
+}
+
+class MasterViewController: UIViewController {
     
-    @IBOutlet var noDataView: UIView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var itemsCounterLabel: UILabel!
     
-    private let viewModel = ItemsViewModel()
+    var items: [Item] = []
+    var delegate: ShowDetailProtocol!
+    
     fileprivate var selectedCellIndex: Int = 0 {
         didSet {
             if let oldCell = tableView.cellForRow(at: IndexPath(row: oldValue, section: 0)) as? ItemTableViewCell {
@@ -29,70 +36,43 @@ class MasterViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupView()
-        fetchData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupItemsCounter()
+        tableView.reloadData()
     }
     
     //MARK: - Private Methods
     
     private func setupView() {
-        splitViewController?.delegate = self
-        splitViewController?.preferredDisplayMode = .allVisible
-
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
-        
         tableView.tableFooterView = UIView()
         tableView.register(UINib(nibName: ItemTableViewCell.toString(), bundle: nil),
                            forCellReuseIdentifier: ItemTableViewCell.toString())
-        tableView.backgroundView = noDataView
     }
     
-    private func fetchData() {
-        viewModel.initFetch { [weak self] in
-            guard let itemsCount = self?.viewModel.itemsCount else { return }
-            
-            self?.tableView.backgroundView = itemsCount > 0 ? nil : self?.noDataView
-            self?.title = String(format: "Items: %i", itemsCount)
-            self?.tableView.reloadData()
-        }
-    }
-}
-
-// MARK: - Navigation
-
-extension MasterViewController {
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard
-            segue.identifier == "showDetail",
-            let index = sender as? Int,
-            let detailNavigationController = segue.destination as? UINavigationController,
-            let detailViewController = detailNavigationController.topViewController as? DetailViewController
-            else { return }
-
-        detailViewController.itemName = viewModel.getItemName(withIndex: index)
-        
-        detailViewController.navigationItem.leftItemsSupplementBackButton = true
-        detailViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+    private func setupItemsCounter() {
+        itemsCounterLabel.text = String(format: "Items: %i", items.count)
     }
 }
 
 // MARK: - Table View Data Souce Methods
 
-extension MasterViewController {
+extension MasterViewController: UITableViewDataSource {
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.itemsCount
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
             let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.toString(),
                                                        for: indexPath) as? ItemTableViewCell
             else { return UITableViewCell() }
         
-        let data = viewModel.getItemData(withIndex: indexPath.row)
+        let data = items[indexPath.row]
         cell.update(withData: data)
         cell.state = selectedCellIndex == indexPath.row ? .selected : .notSelected
         
@@ -109,30 +89,20 @@ extension MasterViewController {
 
 // MARK: - Table View Delegate Methods
 
-extension MasterViewController {
+extension MasterViewController: UITableViewDelegate {
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedCellIndex = indexPath.row
-        performSegue(withIdentifier: "showDetail", sender: indexPath.row)
+        delegate.showDetail(withName: items[indexPath.row].name)
     }
 
-    override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! ItemTableViewCell
         cell.state = .touched
     }
     
-    override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! ItemTableViewCell
         cell.state = selectedCellIndex == indexPath.row ? .selected : .notSelected
-    }
-    
-}
-
-// MARK: - Split View Controller Delegate Method
-
-extension MasterViewController: UISplitViewControllerDelegate {
-    
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-        return true
     }
 }

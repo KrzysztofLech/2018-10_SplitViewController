@@ -18,7 +18,6 @@
 		6B8B9736217DA0C100214CAD /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B9735217DA0C100214CAD /* MasterViewController.swift */; };
 		6B8B9738217DA46100214CAD /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B9737217DA46100214CAD /* Item.swift */; };
 		6B8B973A217DA54B00214CAD /* Constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B9739217DA54B00214CAD /* Constans.swift */; };
-		6B8B973E217DA6F900214CAD /* ItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B973D217DA6F900214CAD /* ItemsViewModel.swift */; };
 		6B8B9741217DB60300214CAD /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B973F217DB60300214CAD /* ItemTableViewCell.swift */; };
 		6B8B9742217DB60300214CAD /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B8B9740217DB60300214CAD /* ItemTableViewCell.xib */; };
 		6B8B9744217DB80A00214CAD /* UIView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B9743217DB80A00214CAD /* UIView+extensions.swift */; };
@@ -32,6 +31,8 @@
 		6BA9CD73217D9D0000333CDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BA9CD72217D9D0000333CDD /* Assets.xcassets */; };
 		6BA9CD76217D9D0000333CDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BA9CD74217D9D0000333CDD /* LaunchScreen.storyboard */; };
 		6BA9CD81217D9D0000333CDD /* TappticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA9CD80217D9D0000333CDD /* TappticTests.swift */; };
+		6BB95893218054420035649A /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BB95891218054420035649A /* List.storyboard */; };
+		6BB958962180546D0035649A /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BB958942180546D0035649A /* Detail.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +57,6 @@
 		6B8B9735217DA0C100214CAD /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		6B8B9737217DA46100214CAD /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		6B8B9739217DA54B00214CAD /* Constans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constans.swift; sourceTree = "<group>"; };
-		6B8B973D217DA6F900214CAD /* ItemsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewModel.swift; sourceTree = "<group>"; };
 		6B8B973F217DB60300214CAD /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		6B8B9740217DB60300214CAD /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 		6B8B9743217DB80A00214CAD /* UIView+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extensions.swift"; sourceTree = "<group>"; };
@@ -74,6 +74,8 @@
 		6BA9CD7C217D9D0000333CDD /* TappticTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TappticTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA9CD80217D9D0000333CDD /* TappticTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappticTests.swift; sourceTree = "<group>"; };
 		6BA9CD82217D9D0000333CDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BB95892218054420035649A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Tapptic/Base.lproj/List.storyboard; sourceTree = "<group>"; };
+		6BB958952180546D0035649A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Tapptic/Base.lproj/Detail.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +118,6 @@
 		6B8B9728217D9DE400214CAD /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				6B8B973D217DA6F900214CAD /* ItemsViewModel.swift */,
 				6B8B974D217DDA8D00214CAD /* DetailViewModel.swift */,
 			);
 			path = ViewModels;
@@ -204,7 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				6BA9CD6B217D9CFF00333CDD /* AppDelegate.swift */,
-				6BA9CD6F217D9CFF00333CDD /* Main.storyboard */,
+				6BB95897218054950035649A /* Storyboards */,
 				6B8B9727217D9DCC00214CAD /* Models */,
 				6B8B9728217D9DE400214CAD /* ViewModels */,
 				6B8B9729217D9DEF00214CAD /* Views */,
@@ -223,6 +224,16 @@
 				6BA9CD82217D9D0000333CDD /* Info.plist */,
 			);
 			path = TappticTests;
+			sourceTree = "<group>";
+		};
+		6BB95897218054950035649A /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				6BA9CD6F217D9CFF00333CDD /* Main.storyboard */,
+				6BB95891218054420035649A /* List.storyboard */,
+				6BB958942180546D0035649A /* Detail.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,8 +319,10 @@
 			files = (
 				6B8B9742217DB60300214CAD /* ItemTableViewCell.xib in Resources */,
 				6BA9CD76217D9D0000333CDD /* LaunchScreen.storyboard in Resources */,
+				6BB95893218054420035649A /* List.storyboard in Resources */,
 				6BA9CD73217D9D0000333CDD /* Assets.xcassets in Resources */,
 				6BA9CD71217D9CFF00333CDD /* Main.storyboard in Resources */,
+				6BB958962180546D0035649A /* Detail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,7 +348,6 @@
 				6B067209217F12570003E609 /* Result.swift in Sources */,
 				6BA9CD6C217D9CFF00333CDD /* AppDelegate.swift in Sources */,
 				6B8B9741217DB60300214CAD /* ItemTableViewCell.swift in Sources */,
-				6B8B973E217DA6F900214CAD /* ItemsViewModel.swift in Sources */,
 				6B8B974C217DCEF500214CAD /* Detail.swift in Sources */,
 				6B06720B217F126F0003E609 /* ErrorResult.swift in Sources */,
 				6B8B9744217DB80A00214CAD /* UIView+extensions.swift in Sources */,
@@ -383,6 +395,22 @@
 				6BA9CD75217D9D0000333CDD /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		6BB95891218054420035649A /* List.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6BB95892218054420035649A /* Base */,
+			);
+			name = List.storyboard;
+			sourceTree = "<group>";
+		};
+		6BB958942180546D0035649A /* Detail.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6BB958952180546D0035649A /* Base */,
+			);
+			name = Detail.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

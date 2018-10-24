@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rPo-aV-jSh">
+    <device id="retina4_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Start View Controller-->
+        <scene sceneID="viw-7r-kdl">
+            <objects>
+                <viewController id="rPo-aV-jSh" customClass="StartViewController" customModule="Tapptic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="reB-yc-LOG">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="idH-iP-Y2p">
+                                <rect key="frame" x="276" y="273" width="115" height="52"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data downloading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOr-Bq-6Yh">
+                                        <rect key="frame" x="0.0" y="0.0" width="115" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="AaD-Km-Gf9">
+                                        <rect key="frame" x="47.5" y="32" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="hOr-Bq-6Yh" firstAttribute="leading" secondItem="idH-iP-Y2p" secondAttribute="leading" id="DJd-r2-rhV"/>
+                                    <constraint firstItem="AaD-Km-Gf9" firstAttribute="top" secondItem="hOr-Bq-6Yh" secondAttribute="bottom" constant="15" id="NqG-1w-6tP"/>
+                                    <constraint firstItem="hOr-Bq-6Yh" firstAttribute="top" secondItem="idH-iP-Y2p" secondAttribute="top" id="Wza-Gn-Tk7"/>
+                                    <constraint firstAttribute="trailing" secondItem="hOr-Bq-6Yh" secondAttribute="trailing" id="rQN-Bd-skM"/>
+                                    <constraint firstItem="AaD-Km-Gf9" firstAttribute="centerX" secondItem="hOr-Bq-6Yh" secondAttribute="centerX" id="tyx-wQ-CxW"/>
+                                    <constraint firstAttribute="bottom" secondItem="AaD-Km-Gf9" secondAttribute="bottom" id="vL4-4J-5zj"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tapptic_logo" translatesAutoresizingMaskIntoConstraints="NO" id="7dt-iP-je8">
+                                <rect key="frame" x="213.5" y="137.5" width="240" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="cPp-Le-GMc"/>
+                                    <constraint firstAttribute="height" constant="100" id="jIT-fm-P8P"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7dt-iP-je8" firstAttribute="centerX" secondItem="reB-yc-LOG" secondAttribute="centerX" id="5D5-3C-uV8"/>
+                            <constraint firstItem="uSW-ys-RPv" firstAttribute="bottom" secondItem="idH-iP-Y2p" secondAttribute="bottom" constant="50" id="RxO-rl-R98"/>
+                            <constraint firstItem="7dt-iP-je8" firstAttribute="centerY" secondItem="reB-yc-LOG" secondAttribute="centerY" id="kRi-5z-07w"/>
+                            <constraint firstItem="idH-iP-Y2p" firstAttribute="centerX" secondItem="reB-yc-LOG" secondAttribute="centerX" id="qvR-ui-UQ7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uSW-ys-RPv"/>
+                    </view>
+                    <connections>
+                        <outlet property="downloadingInfoView" destination="idH-iP-Y2p" id="aku-Xc-gBh"/>
+                        <segue destination="HK8-Wb-8OQ" kind="show" identifier="ShowSplitVC" id="xLg-pX-XHB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ddL-WM-mZ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-330" y="-58"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="LNt-lj-ysv">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" id="HK8-Wb-8OQ" customClass="SplitViewController" customModule="Tapptic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y8j-pI-vud">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dhS-JT-4TS">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <subviews>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y2g-OX-3K1">
+                                        <rect key="frame" x="0.0" y="0.0" width="333.5" height="375"/>
+                                        <connections>
+                                            <segue destination="CdW-pZ-euC" kind="embed" identifier="ListVC" id="Dor-0j-boO"/>
+                                        </connections>
+                                    </containerView>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="45y-W2-ZFV">
+                                        <rect key="frame" x="333.5" y="0.0" width="333.5" height="375"/>
+                                        <connections>
+                                            <segue destination="XRP-fX-pGj" kind="embed" identifier="DetailVC" id="Mta-z4-AbV"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="45y-W2-ZFV" firstAttribute="height" secondItem="dhS-JT-4TS" secondAttribute="height" id="j3b-0R-8Jn"/>
+                                    <constraint firstItem="Y2g-OX-3K1" firstAttribute="height" secondItem="dhS-JT-4TS" secondAttribute="height" id="jsM-Ex-PjV"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="dhS-JT-4TS" secondAttribute="bottom" id="6tx-Hp-bu8"/>
+                            <constraint firstItem="dhS-JT-4TS" firstAttribute="top" secondItem="hVJ-Vv-seW" secondAttribute="top" id="ovt-D5-mLP"/>
+                            <constraint firstItem="dhS-JT-4TS" firstAttribute="leading" secondItem="hVJ-Vv-seW" secondAttribute="leading" id="tF8-jl-gns"/>
+                            <constraint firstItem="hVJ-Vv-seW" firstAttribute="trailing" secondItem="dhS-JT-4TS" secondAttribute="trailing" id="zOx-dn-PQG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hVJ-Vv-seW"/>
+                    </view>
+                    <connections>
+                        <outlet property="detailView" destination="45y-W2-ZFV" id="NVg-SI-B7X"/>
+                        <outlet property="listView" destination="Y2g-OX-3K1" id="7An-LZ-EUB"/>
+                        <outlet property="mainStackView" destination="dhS-JT-4TS" id="dbf-sc-oUm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WVZ-J4-M9a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="403" y="-58"/>
+        </scene>
+        <!--List-->
+        <scene sceneID="Rdh-9c-GKC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="List" id="CdW-pZ-euC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Io9-Dm-v1f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="259" y="522"/>
+        </scene>
+        <!--Detail-->
+        <scene sceneID="q0F-5H-MnH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Detail" id="XRP-fX-pGj" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fW4-OA-l2f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="559" y="522"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Tapptic_logo" width="2655" height="717"/>
+    </resources>
+</document>
