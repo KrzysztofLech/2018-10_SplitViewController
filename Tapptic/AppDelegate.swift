@@ -15,16 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        guard
-            let splitViewController = window?.rootViewController as? UISplitViewController,
-            let detailNavigationController = splitViewController.viewControllers.last as? UINavigationController,
-            let detailViewController = detailNavigationController.topViewController as? DetailViewController
-            else { fatalError() }
-        
-        // iPad settings
-        detailViewController.navigationItem.leftItemsSupplementBackButton = true
-        detailViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
-        
         return true
     }
 }

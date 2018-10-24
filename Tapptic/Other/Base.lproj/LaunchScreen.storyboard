@@ -19,9 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tapptic_logo" translatesAutoresizingMaskIntoConstraints="NO" id="oG4-Tc-ENa">
-                                <rect key="frame" x="67.5" y="-25" width="240" height="717"/>
+                                <rect key="frame" x="67.5" y="283.5" width="240" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="Fbr-Uw-Q8z"/>
+                                    <constraint firstAttribute="height" constant="100" id="yj2-E8-Ht3"/>
                                 </constraints>
                             </imageView>
                         </subviews>
